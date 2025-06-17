@@ -42,21 +42,26 @@
     }
 
     .hero {
-      text-align: center;
-      padding: 60px 20px;
-      background: url('https://i.imgur.com/VFiqFqP.jpg') no-repeat center/cover;
-      color: #fff;
-      position: relative;
-    }
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 60px 20px;
+  color: #fff;
+  overflow: hidden; /* This ensures the ::after layer doesn't spill */
+}
+
 
     .hero::after {
-      content: "";
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.4);
-      z-index: 0;
-    }
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(179,0,89,0.5)),
+              url('brush.jpg.avif') center/cover no-repeat;
+  opacity: 0.6;
+  z-index: 0;
+}
+
 
     .hero h1 {
       font-family: 'Great Vibes', cursive;
@@ -154,16 +159,6 @@
   margin: 0;
   padding: 0;
   border-bottom: 3px solid #b30059; /* Optional: decorative border */
-}
-.hero::after {
-  content: "";
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(179,0,89,0.5)),
-              url('brush.jpg.avif') center/cover no-repeat;
-  opacity: 0.6;
-  z-index: 0;
 }
 
 
